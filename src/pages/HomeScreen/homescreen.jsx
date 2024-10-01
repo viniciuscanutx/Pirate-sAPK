@@ -7,7 +7,7 @@ import { Bars3CenterLeftIcon, MagnifyingGlassIcon } from 'react-native-heroicons
 import { styles } from '../../theme/index'
 import MovieList from '../../components/movieList/movieList';
 
-export default function AppNavigation() {
+export default function HomeScreen() {
     
     const [trending, setTrending] = useState([1,2,3]);
     const [upcoming, setUpcoming] = useState([1,2,3]);
