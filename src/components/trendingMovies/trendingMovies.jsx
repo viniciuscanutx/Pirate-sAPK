@@ -1,4 +1,4 @@
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native'
 import React from 'react';
 import {View, Text, TouchableWithoutFeedback, Dimensions, Image } from 'react-native';
 import Carousel from 'react-native-snap-carousel'
@@ -8,6 +8,7 @@ var {width, height} = Dimensions.get('window');
 
 export default function TrendingMovies({data}) {
     const navigation = useNavigation();
+
     const handleClick = (item)=>{
         navigation.navigate('Movie', item);
     }
