@@ -23,7 +23,7 @@ export default function MovieScreen() {
     return (
         <ScrollView
             contentContainerStyle={{ paddingTop: 0, paddingBottom: 55 }}
-            className='flex-1 bg-neutral-900'
+            className='flex-1 bg-black'
         >
             <View className='w-full'>
                 <SafeAreaView className='absolute mt-10 z-20 w-full flex-row justify-between items-center px-4'>
@@ -55,7 +55,7 @@ export default function MovieScreen() {
                     </TouchableOpacity>
 
                     <LinearGradient
-                        colors={['transparent', 'rgba(23,23,23, 0.8)', 'rgba(23,23,23, 1)']}
+                        colors={['transparent', 'rgba(0,0,0, 0.8)', 'rgba(0,0,0, 125)']}
                         style={{ width, height: height * 0.75 }}
                         start={{ x: 0.5, y: 0 }}
                         end={{ x: 0.5, y: 1 }}
