@@ -34,7 +34,7 @@ export default function MovieScreen() {
                         <HeartIcon size="35" color={isFavorite ? theme.text : "white"} />
                     </TouchableOpacity>
                 </SafeAreaView>
-
+                
                 <View>
 
                     <Image
@@ -61,6 +61,7 @@ export default function MovieScreen() {
                         end={{ x: 0.5, y: 1 }}
                         className='absolute bottom-0'
                     />
+
                 </View>
             </View>
 
