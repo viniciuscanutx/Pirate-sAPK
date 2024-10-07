@@ -3,6 +3,7 @@ import axios from 'axios';
 // endpoint local api
 
 const TrendingMoviesEndpoint = 'https://web-films-api.vercel.app/found'
+const movieDetailsEndpoint = id=> `https://web-films-api.vercel.app/${id}`
 
 const apiCall = async (endpoint, params)=>{
     const options = {
@@ -22,4 +23,8 @@ const apiCall = async (endpoint, params)=>{
 
 export const fetchTrendingMovies = ()=>{
     return apiCall(TrendingMoviesEndpoint);
+}
+
+export const fetchMovieDetails = id=>{
+    return apiCall(movieDetailsEndpoint(id))
 }
