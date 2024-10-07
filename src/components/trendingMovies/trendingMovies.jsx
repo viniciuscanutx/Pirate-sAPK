@@ -1,4 +1,4 @@
-import { useNavigation, useRoute } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native'
 import React from 'react';
 import {View, Text, TouchableWithoutFeedback, Dimensions, Image } from 'react-native';
 import Carousel from 'react-native-snap-carousel'
@@ -8,7 +8,6 @@ var {width, height} = Dimensions.get('window');
 
 export default function TrendingMovies({data}) {
     const navigation = useNavigation();
-
     const handleClick = (item)=>{
         navigation.navigate('Movie', item);
     }
@@ -32,7 +31,7 @@ const MovieCard = ({item, handleClick})=>{
     return (
         <TouchableWithoutFeedback onPress={() => handleClick(item)}>
             <Image
-            source={require("../../../assets/foto1.jpg")}
+            source={{uri: item.poster}}
             style={{
                 width: width*0.5,
                 height: height*0.4

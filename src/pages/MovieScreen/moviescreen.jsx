@@ -13,11 +13,11 @@ export default function MovieScreen() {
     let movieName = 'Ant-man and the Wasp: Quantumania';
     const { params: item } = useRoute();
     const [isFavorite, toggleFavorite] = useState(false);
-    const [similarMovies, setSimilarMovies] = useState([1,2,3,4,5]);
+    const [similarMovies, setSimilarMovies] = useState([]);
     const navigation = useNavigation();
 
     useEffect(() => {
-
+        console.log('itemid: ', item._id)
     }, [item])
 
     return (

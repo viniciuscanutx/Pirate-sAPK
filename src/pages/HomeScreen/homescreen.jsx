@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, Touchable, TouchableOpacity, ScrollView } from "react-native";
 import TrendingMovies from '../../components/trendingMovies/trendingMovies';
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -8,14 +8,30 @@ import { styles } from '../../theme/index'
 import MovieList from '../../components/movieList/movieList';
 import { useNavigation } from '@react-navigation/native';
 import Loading from '../LoadingScreen/loadingscreen';
+import { fetchTrendingMovies } from '../../api/moviedb';
 
 export default function HomeScreen() {
     
-    const [trending, setTrending] = useState([1,2,3]);
-    const [upcoming, setUpcoming] = useState([1,2,3]);
-    const [topRated, setTopRated] = useState([1,2,3]);
-    const [loading, setLoading] = useState(false);
+    const [trending, setTrending] = useState([]);
+    const [topRated, setTopRated] = useState([]);
+    const [loading, setLoading] = useState(true);
     const navigation = useNavigation();
+
+    useEffect(()=>{
+        getTrendingMovies();
+        getTopRatedMovies();
+    }, [])
+
+    const getTrendingMovies = async ()=>{
+        const data = await fetchTrendingMovies();
+        if(data && data) setTrending(data);
+        setLoading(false);
+    }
+
+    const getTopRatedMovies = async ()=>{
+        const data = await fetchTrendingMovies();
+        if(data && data) setTopRated(data);
+    }
 
     return (
         <View className="flex-1 bg-black">
@@ -42,9 +58,7 @@ export default function HomeScreen() {
                         contentContainerStyle={{paddingBottom: 10}}
                     >
 
-                        <TrendingMovies data={trending} />
-
-                        <MovieList title="Upcoming" data={upcoming} />
+                        { trending.length>0 && <TrendingMovies data={trending} /> } 
 
                         <MovieList title="Top Rated Movies" data={topRated} />   
                      

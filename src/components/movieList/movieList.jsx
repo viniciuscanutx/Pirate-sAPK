@@ -35,13 +35,13 @@ export default function MovieList({title, data, hideSeeAll}) {
                             >
                                 <View className="space-y-1 mr-6">
                                     <Image
-                                        source={require('../../../assets/foto2.jpg')}
+                                        source={{uri: item.poster}}
                                         className="rounded-3xl"
                                         style={{width: width*0.28, height: height*0.25}}
                                     />
                                 <Text className="text-white ml-1">
                                     {
-                                        movieName.length>14? movieName.slice(0,14)+'...': movieName
+                                        item.titulo.length>14? item.titulo.slice(0,14)+'...': item.titulo
                                     }
                                 </Text>
                                 </View>
