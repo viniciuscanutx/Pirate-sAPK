@@ -5,6 +5,7 @@ import { ChevronLeftIcon, HeartIcon, PlayIcon } from 'react-native-heroicons/out
 import { styles, theme } from '../../theme'
 import { LinearGradient } from 'expo-linear-gradient'
 import MovieList from '../../components/movieList/movieList';
+import { fetchMovieDetails } from '../../api/moviedb';
 
 var { width, height } = Dimensions.get('window');
 
@@ -17,8 +18,13 @@ export default function MovieScreen() {
     const navigation = useNavigation();
 
     useEffect(() => {
-        console.log('itemid: ', item._id)
+        console.log('itemid: ', item._id);
+        getMovieDetails(item._id);
     }, [item])
+
+    const getMovieDetails = async id=>{
+        const data = await fetchMovieDetails(id)
+    }
 
     return (
         <ScrollView
@@ -38,7 +44,7 @@ export default function MovieScreen() {
                 <View>
 
                     <Image
-                        source={require('../../../assets/foto1.jpg')}
+                        source={{uri: item.poster}}
                         style={{ width, height: height * 0.55 }}
                     />
 
@@ -67,26 +73,20 @@ export default function MovieScreen() {
 
             <View style={{ marginTop: -(height * 0.140) }} className='space-y-4'>
                 <Text className='text-white text-center text-3xl font-bold tracking-wider'>
-                    {movieName}
+                    {item.titulo}
                 </Text>
                 
                 <Text className='text-neutral-400 font-semibold text-base text-center'>
-                    Released • 2020 • 170min
+                    Released • {item.lancamento}
                 </Text>
 
                 <View className='flex-row justify-center mx-4 space-x-2'>
                     <Text className='text-neutral-400 font-semibold text-base text-center'>
-                        Action • 
-                    </Text>
-                    <Text className='text-neutral-400 font-semibold text-base text-center'>
-                        Adventure •  
-                    </Text>
-                    <Text className='text-neutral-400 font-semibold text-base text-center'>
-                        Comedy
+                        {item.genero}
                     </Text>
                 </View>
-                <Text className='text-neutral-400 mb-6 pt-2 mx-12 tracking-wide'>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto amet voluptatum, eos numquam vitae dicta? Optio iusto voluptatem omnis sint commodi quis, enim, voluptates maiores nihil quas quo quibusdam iste?
+                <Text className='text-neutral-400 mb-10 pt-5 pl-5 mx-7 tracking-wide'>
+                {item.sinopse}
                 </Text>
             </View>
 
