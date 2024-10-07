@@ -1,30 +1,34 @@
 import axios from 'axios';
 
 // endpoint local api
+const TrendingMoviesEndpoint = 'https://web-films-api.vercel.app/found';
+const movieDetailsEndpoint = id => `https://web-films-api.vercel.app/${id}`;
+const searchMoviesEndpoint = query => `https://web-films-api.vercel.app/search?titulo=${query}`;
 
-const TrendingMoviesEndpoint = 'https://web-films-api.vercel.app/found'
-const movieDetailsEndpoint = id=> `https://web-films-api.vercel.app/${id}`
-
-const apiCall = async (endpoint, params)=>{
+const apiCall = async (endpoint, params) => {
     const options = {
         method: 'GET',
-        url: endpoint, 
-        params: params? params: {}
-    }
+        url: endpoint,
+        params: params ? params : {},
+    };
 
-    try{
+    try {
         const response = await axios.request(options);
         return response.data;
-    }catch(error){
-        console.log('error: ',error);
-        return{}
+    } catch (error) {
+        console.log('error: ', error);
+        return {};
     }
-}
+};
 
-export const fetchTrendingMovies = ()=>{
+export const fetchTrendingMovies = () => {
     return apiCall(TrendingMoviesEndpoint);
-}
+};
 
-export const fetchMovieDetails = id=>{
-    return apiCall(movieDetailsEndpoint(id))
-}
+export const fetchMovieDetails = id => {
+    return apiCall(movieDetailsEndpoint(id));
+};
+
+export const searchMovies = async (query) => {
+    return apiCall(searchMoviesEndpoint(query));
+};
