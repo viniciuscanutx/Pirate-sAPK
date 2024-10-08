@@ -1,10 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { View, Text, ActivityIndicator, StyleSheet, Dimensions } from 'react-native';
 import { Video } from 'expo-av';
-import { useRoute } from '@react-navigation/native';
+import { useRoute, useFocusEffect } from '@react-navigation/native';
 import { fetchMovieDetails } from '../../api/moviedb'; 
-
-const { width, height } = Dimensions.get('window');
+import * as ScreenOrientation from 'expo-screen-orientation'; 
 
 export default function WatchScreen() {
   const { params: { id } } = useRoute(); 
@@ -14,19 +13,49 @@ export default function WatchScreen() {
 
   useEffect(() => {
     getMovieVideoLink(id); 
+    const lockOrientation = async () => {
+      await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
+    };
+    lockOrientation();
+
+    return () => {
+      ScreenOrientation.unlockAsync();
+    };
   }, [id]);
+
+  useFocusEffect(
+    React.useCallback(() => {
+      const lockOrientation = async () => {
+        await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
+      };
+      lockOrientation();
+
+      return () => {
+        const unlockOrientation = async () => {
+          await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
+        };
+        unlockOrientation();
+      };
+    }, [])
+  );
 
   const getMovieVideoLink = async (movieId) => {
     try {
       const data = await fetchMovieDetails(movieId); 
       if (data && data.link) {
-        console.log(data.link)
+        console.log(data.link);
         setVideoUrl(data.link); 
       }
     } catch (error) {
       console.error('Erro ao buscar o link do vídeo:', error);
     } finally {
       setLoading(false); 
+    }
+  };
+
+  const handleFullscreenUpdate = async (status) => {
+    if (status.didJustExitFullscreen) {
+      await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
     }
   };
 
@@ -41,13 +70,14 @@ export default function WatchScreen() {
           rate={1.0}
           volume={1.0}
           isMuted={false}
-          resizeMode="contain"
+          resizeMode="contain" 
           shouldPlay
           useNativeControls 
-          style={styles.video}
+          style={styles.video} 
+          onFullscreenUpdate={handleFullscreenUpdate} 
         />
       ) : (
-        <Text style={styles.errorText}>Não foi possível carregar o vídeo.</Text>
+        <Text style={styles.errorText}>Não foi possível carregar o filme.</Text>
       )}
     </View>
   );
@@ -61,8 +91,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   video: {
-    width: width,
-    height: height * 0.4, 
+    width: '100%', 
+    height: '100%', 
   },
   errorText: {
     color: 'white',
