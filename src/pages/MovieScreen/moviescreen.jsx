@@ -6,6 +6,7 @@ import { styles, theme } from '../../theme'
 import { LinearGradient } from 'expo-linear-gradient'
 import MovieList from '../../components/movieList/movieList';
 import { fetchMovieDetails } from '../../api/moviedb';
+import WatchScreen from '../WatchScreen/watchscreen';
 
 var { width, height } = Dimensions.get('window');
 
@@ -49,7 +50,7 @@ export default function MovieScreen() {
                     />
 
                     <TouchableOpacity
-                        onPress={() => console.log('Play video')}
+                        onPress={() => navigation.navigate('Watch', { id: item._id })}
                         className='absolute z-10'
                         style={{
                             position: 'absolute',

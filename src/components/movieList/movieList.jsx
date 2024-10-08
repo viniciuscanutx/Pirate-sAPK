@@ -7,7 +7,6 @@ var {width, height} = Dimensions.get('window');
 export default function MovieList({title, data, hideSeeAll}) {
 
     const navigation = useNavigation();
-    let movieName = 'Ant-man and the Wasp: Quantumania';
 
     return (
         <View className="mb-5 mt-5 space-y-4">
