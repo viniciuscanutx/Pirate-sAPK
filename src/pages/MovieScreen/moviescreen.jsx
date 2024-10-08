@@ -1,35 +1,47 @@
-import { View, Text, ScrollView, TouchableOpacity, SafeAreaView, Dimensions, Image } from 'react-native'
-import React, { useEffect, useState } from 'react'
-import { useNavigation, useRoute } from '@react-navigation/native'
+import { View, Text, ScrollView, TouchableOpacity, SafeAreaView, Dimensions, Image } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { ChevronLeftIcon, HeartIcon, PlayIcon } from 'react-native-heroicons/outline';
-import { styles, theme } from '../../theme'
-import { LinearGradient } from 'expo-linear-gradient'
+import { styles, theme } from '../../theme';
+import { LinearGradient } from 'expo-linear-gradient';
 import MovieList from '../../components/movieList/movieList';
-import { fetchMovieDetails } from '../../api/moviedb';
-import WatchScreen from '../WatchScreen/watchscreen';
+import { fetchMovieDetails, fetchTrendingMovies } from '../../api/moviedb';
 
-var { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
 export default function MovieScreen() {
-
-    let movieName = 'Ant-man and the Wasp: Quantumania';
     const { params: item } = useRoute();
     const [isFavorite, toggleFavorite] = useState(false);
     const [similarMovies, setSimilarMovies] = useState([]);
     const navigation = useNavigation();
 
     useEffect(() => {
-        console.log('itemid: ', item._id);
+        const getMovieDetails = async id => {
+            try {
+                const data = await fetchMovieDetails(id);
+            } catch (error) {
+                console.error('Error fetching movie details:', error);
+            }
+        };
         getMovieDetails(item._id);
-    }, [item])
+    }, [item]);
 
-    const getMovieDetails = async id=>{
-        const data = await fetchMovieDetails(id)
-    }
+    useEffect(() => {
+        const getSimilarMovies = async () => {
+            try {
+                const data = await fetchTrendingMovies();
+                if (data) setSimilarMovies(data);
+            } catch (error) {
+                console.error('Error fetching similar movies:', error);
+            }
+        };
+
+        getSimilarMovies();
+    }, []);
 
     return (
         <ScrollView
-            contentContainerStyle={{ paddingTop: 0, paddingBottom: 55 }}
+            contentContainerStyle={{ paddingTop: 30, paddingBottom: 55 }}
             className='flex-1 bg-black'
         >
             <View className='w-full'>
