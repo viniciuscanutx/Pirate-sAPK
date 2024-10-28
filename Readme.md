@@ -23,7 +23,7 @@
 
 ## Sobre
 
-O **WebFilmesAPK** é um aplicativo desenvolvido com Expo que permite aos usuários explorar e assistir filmes online. Utiliza APIs para buscar informações sobre filmes, exibir sinopses, e categorias de filmes com uma interface intuitiva e responsiva.
+O **Pirate's** é um aplicativo desenvolvido com Expo que permite aos usuários explorar e assistir filmes online. Utiliza APIs para buscar informações sobre filmes, exibir sinopses, e categorias de filmes com uma interface intuitiva e responsiva.
 
 ## Recursos
 
@@ -51,7 +51,7 @@ npm install -g expo-cli
 Clone o repositório do GitHub para sua máquina local:
 
 ```bash
-git clone https://github.com/seu-usuario/WebFilmesAPK.git
+git clone https://github.com/seu-usuario/Pirate-sAPK's.git
 ```
 
 ### Instalação das Dependências
@@ -72,4 +72,32 @@ expo start
 ```
 
 Isso abrirá o Expo Dev Tools no seu navegador, e você poderá usar o QR code para abrir o aplicativo em seu dispositivo móvel.
+
+### Screenshots
+
+<p align="center">
+    <strong>HomePage</strong>
+</p>
+<img src='https://raw.githubusercontent.com/viniciuscanutx/Pirate-sAPK/refs/heads/main/assets/screenshots/Screenshot_1.jpg' width=800px />
+
+<p align="center">
+    <strong>MoviePage</strong>
+</p>
+<img src='https://raw.githubusercontent.com/viniciuscanutx/Pirate-sAPK/refs/heads/main/assets/screenshots/Screenshot_2.jpg' width=800px />
+
+<p align="center">
+    <strong>Search Page</strong>
+</p>
+<img src='https://raw.githubusercontent.com/viniciuscanutx/Pirate-sAPK/refs/heads/main/assets/screenshots/Screenshot_3.jpg' width=800px />
+
+<p align="center">
+    <strong>All Movies Page</strong>
+</p>
+<img src='https://raw.githubusercontent.com/viniciuscanutx/Pirate-sAPK/refs/heads/main/assets/screenshots/Screenshot_4.jpg' width=800px />
+
+<p align="center">
+    <strong>Player!</strong>
+</p>
+<img src='https://raw.githubusercontent.com/viniciuscanutx/Pirate-sAPK/refs/heads/main/assets/screenshots/Screenshot_5.jpg' width=800px />
+
 
