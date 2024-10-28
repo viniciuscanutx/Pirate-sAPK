@@ -41,7 +41,7 @@ export default function HomeScreen() {
                 <View className="flex-row justify-between items-center mx-4">
                     <Bars3CenterLeftIcon size="30" strokeWidth={2} color="white" />
                     <Text className="text-white text-3xl font-bold">
-                        <Text style={styles.text}>P</Text>irate's
+                        <Text>P</Text>irate's
                     </Text>
                     <TouchableOpacity onPress={()=> navigation.navigate('Search')}>
                         <MagnifyingGlassIcon size="30" strokeWidth={2} color="white" />

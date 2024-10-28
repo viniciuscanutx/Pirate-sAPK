@@ -98,7 +98,7 @@ export default function MovieScreen() {
                         {item.genero}
                     </Text>
                 </View>
-                <Text className='text-neutral-400 mb-10 pt-5 pl-5 mx-7 tracking-wide'>
+                <Text className='text-neutral-400 mb-6 pt-5 pl-5 mx-7 tracking-wide'>
                 {item.sinopse}
                 </Text>
             </View>
