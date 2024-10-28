@@ -78,7 +78,7 @@ Isso abrirá o Expo Dev Tools no seu navegador, e você poderá usar o QR code p
 <p align="center">
     <strong>HomePage</strong>
 </p>
-<img src='https://raw.githubusercontent.com/viniciuscanutx/Pirate-sAPK/refs/heads/main/assets/screenshots/Screenshot_1.jpg' width=800px />
+<img src='https://raw.githubusercontent.com/viniciuscanutx/Pirate-sAPK/refs/heads/main/assets/screenshots/Screenshot_1.jpg' width=450px />
 
 <p align="center">
     <strong>MoviePage</strong>
