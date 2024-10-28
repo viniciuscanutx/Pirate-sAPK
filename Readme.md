@@ -51,7 +51,7 @@ npm install -g expo-cli
 Clone o repositório do GitHub para sua máquina local:
 
 ```bash
-git clone https://github.com/seu-usuario/Pirate-sAPK's.git
+git clone https://github.com/seu-usuario/Pirate-sAPK.git
 ```
 
 ### Instalação das Dependências
@@ -59,7 +59,7 @@ git clone https://github.com/seu-usuario/Pirate-sAPK's.git
 Navegue para o diretório do projeto e instale as dependências:
 
 ```bash
-cd WebFilmesAPK
+cd Pirate-sAPK
 npm install
 ```
 
