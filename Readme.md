@@ -83,21 +83,21 @@ Isso abrirá o Expo Dev Tools no seu navegador, e você poderá usar o QR code p
 <p align="center">
     <strong>MoviePage</strong>
 </p>
-<img src='https://raw.githubusercontent.com/viniciuscanutx/Pirate-sAPK/refs/heads/main/assets/screenshots/Screenshot_2.jpg' width=800px />
+<img src='https://raw.githubusercontent.com/viniciuscanutx/Pirate-sAPK/refs/heads/main/assets/screenshots/Screenshot_2.jpg' width=450px />
 
 <p align="center">
     <strong>Search Page</strong>
 </p>
-<img src='https://raw.githubusercontent.com/viniciuscanutx/Pirate-sAPK/refs/heads/main/assets/screenshots/Screenshot_3.jpg' width=800px />
+<img src='https://raw.githubusercontent.com/viniciuscanutx/Pirate-sAPK/refs/heads/main/assets/screenshots/Screenshot_3.jpg' width=450px />
 
 <p align="center">
     <strong>All Movies Page</strong>
 </p>
-<img src='https://raw.githubusercontent.com/viniciuscanutx/Pirate-sAPK/refs/heads/main/assets/screenshots/Screenshot_4.jpg' width=800px />
+<img src='https://raw.githubusercontent.com/viniciuscanutx/Pirate-sAPK/refs/heads/main/assets/screenshots/Screenshot_4.jpg' width=450px />
 
 <p align="center">
     <strong>Player!</strong>
 </p>
-<img src='https://raw.githubusercontent.com/viniciuscanutx/Pirate-sAPK/refs/heads/main/assets/screenshots/Screenshot_5.jpg' width=800px />
+<img src='https://raw.githubusercontent.com/viniciuscanutx/Pirate-sAPK/refs/heads/main/assets/screenshots/Screenshot_5.jpg' width=450px />
 
 
